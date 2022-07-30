@@ -36,7 +36,7 @@ Get-Help ConvertTo-SecureString
 $newPassword = ConvertTo-SecureString -String "Pass123!" -AsPlainText -Force
 
 #Now we create the account again
-New-ADUser -name BobS -Department Technik -Title Manager -City Luzern -AccountPassword $newPassword -Enabled $TRUE
+New-ADUser -name BobS -Department Technik -Title Manager -City Luzern -AccountPassword $newPassword -Enabled $true
 
 #Let's check
 Get-ADUser -Identity Bobs -Properties City, Department, Title
