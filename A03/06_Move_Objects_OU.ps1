@@ -5,19 +5,19 @@ Get-Command *org*
 Get-Help Get-ADObject
 
 #Let's search for accounts
-Get-ADObject -SearchBase "OU=NewUsers,DC=prime,DC=pri" -Filter *
+Get-ADObject -SearchBase "DC=corp,DC=pri" -Filter *
 
 #By department
-Get-ADUser -Filter "department -eq 'Engineers'"
+Get-ADUser -Filter "department -eq 'IT'"
 
 #By department and city
-Get-ADUser -Filter "department -eq 'Engineers' -and city -eq 'Luzern'"
+Get-ADUser -Filter "department -eq 'IT' -and city -eq 'Luzern'"
 
 #Listed a little bit better
-Get-ADUser -Filter "department -eq 'Engineers' -and city -eq 'Luzern'" -Properties department, city | Select-Object name, city, department
+Get-ADUser -Filter "department -eq 'IT' -and city -eq 'Luzern'" -Properties department, city | Select-Object name, city, department
 
 #Now we move these three accounts
-Get-ADUser -Filter "department -eq 'Engineers' -and city -eq 'Luzern'" -Properties department, city | Move-ADObject -TargetPath "OU=Engineers,OU=Luzern,DC=prime,DC=pri"
+Get-ADUser -Filter "department -eq 'IT' -and city -eq 'Luzern'" -Properties department, city | Move-ADObject -TargetPath "OU=Engineers,OU=Luzern,DC=prime,DC=pri"
 
 #Did it work?
 Get-ADObject -SearchBase "OU=Engineers,OU=Luzern,DC=prime,DC=pri" -Filter *
