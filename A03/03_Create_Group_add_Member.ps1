@@ -2,7 +2,7 @@
 New-ADGroup -Name "Marketing" -GroupScope DomainLocal
 New-ADGroup -Name "Logistics" -GroupScope Global
 
-#Standardmässig wird eine Sicherheitsgruppe erstellt "GroupCategory: Security"
+#By default, a security group is created "GroupCategory: Security".
 Get-ADGroup "Marketing"
 
 #Create a new group with more information
