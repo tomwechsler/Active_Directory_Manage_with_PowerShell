@@ -9,15 +9,12 @@ New-ADOrganizationalUnit -Name "Luzern"
 
 New-ADOrganizationalUnit -Path "OU=Luzern,DC=prime,DC=pri" -Name "Engineers"
 
-
 #Now there is a problem where is the OU Engineers?
 Get-ADOrganizationalUnit Engineers
-
 
 #What does the help say?
 Get-Help Get-ADOrganizationalUnit
 Get-Help Get-ADOrganizationalUnit -Parameter identity
-
 
 #Identify the OUs
 Get-ADOrganizationalUnit -Identity "OU=Engineers,OU=Luzern,DC=prime,DC=pri"
