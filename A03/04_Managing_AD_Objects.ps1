@@ -5,14 +5,15 @@ Set-ADGroup "Marketing" -GroupScope Universal
 Get-ADGroup "Marketing"
 
 #Then surely we can change from Global to Domainlocal?
-Set-ADGroup "Logistik" -GroupScope DomainLocal
+Get-ADGroup "Logistics"
+Set-ADGroup "Logistics" -GroupScope DomainLocal
 
 #This can be done only by an intermediate step
-Set-ADGroup "Logistik" -GroupScope Universal
-Set-ADGroup "Logistik" -GroupScope Domainlocal
+Set-ADGroup "Logistics" -GroupScope Universal
+Set-ADGroup "Logistics" -GroupScope Domainlocal
 
 #Did it work?
-Get-ADGroup "Logistik"
+Get-ADGroup "Logistics"
 
 #We need a new security group, no problem!
 New-ADGroup -Name "IT" -GroupScope Global
