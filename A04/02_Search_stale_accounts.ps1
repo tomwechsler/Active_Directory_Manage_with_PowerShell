@@ -30,3 +30,25 @@ $filter = {
 }
 
 Get-ADuser -Filter $filter | Where-Object {$_.info -notmatch "System Account"} | Select-Object SamAccountName
+
+#Functionize it
+Function Get-ADStaleUsers {
+    [cmdletbinding()]
+    Param (
+        [datetime]$NoLogonSince = (Get-Date).AddDays(-90),
+        [datetime]$CreatedBefore = (Get-Date).AddDays(-14)
+    )
+    $NoLogonString = $NoLogonSince.ToFileTime()
+    $filter = {
+        ((LastLogonTimeStamp -lt $NoLogonString) -or (LastLogonTimeStamp -notlike "*"))
+        -and (Created -lt $createdBefore)
+    }
+    Write-Host $filter
+    Get-ADuser -Filter $filter
+}
+
+# Usage
+Get-ADStaleUsers
+
+# Usage
+Get-ADStaleUsers -NoLogonSince (Get-Date).AddDays(-30) -CreatedBefore (Get-Date).AddDays(-7)
