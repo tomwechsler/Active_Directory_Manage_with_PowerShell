@@ -1,3 +1,4 @@
+#Resetting passwords
 #Current state 
 Get-ADUser 'Jonathan.Fisher' -Properties PasswordExpired,LockedOut | Format-Table Name,PasswordExpired,LockedOut
 
@@ -10,3 +11,10 @@ Set-ADUser 'Jonathan.Fisher' -ChangePasswordAtLogon $true
 
 #Current state 
 Get-ADUser 'Jonathan.Fisher' -Properties PasswordExpired,LockedOut | Format-Table Name,PasswordExpired,LockedOut
+
+#Unlocking accounts
+#Current State
+Get-ADUser 'Leonard.Clark' -Properties LockedOut | Format-Table Name,LockedOut
+
+#Unlock that account
+Unlock-ADAccount 'Leonard.Clark'
