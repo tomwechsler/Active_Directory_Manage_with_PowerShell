@@ -25,7 +25,7 @@ Get-ADGroupMember -Identity TestMSA
 
 #Now create a new account
 New-ADServiceAccount -Name SvcAcnt1 `
--DNSHostName SvcAcnt1.prime.pri `
+-DNSHostName SvcAcnt1.corp.pri `
 -PassThru
 
 #The account will be edited now
