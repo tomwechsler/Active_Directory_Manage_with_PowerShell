@@ -1,3 +1,6 @@
+#Get-Member
+Get-ADUser -Filter * -Properties * | Get-Member -MemberType property
+
 #Resetting passwords
 #Current state 
 Get-ADUser 'Jonathan.Fisher' -Properties PasswordExpired,LockedOut | Format-Table Name,PasswordExpired,LockedOut
