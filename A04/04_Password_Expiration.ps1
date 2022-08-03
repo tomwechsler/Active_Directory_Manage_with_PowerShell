@@ -19,9 +19,6 @@ $expirationDate = [datetime]::FromFileTime($user.'msDS-UserPasswordExpiryTimeCom
 #Now how far away is that?
 New-TimeSpan -Start (Get-Date) -End $expirationDate
 
-#Assign time span to variable
-$ts = New-TimeSpan -Start (Get-Date) -End $expirationDate
-
 #Finding all users' with soon expiring passwords
 #First we need a filter:
 $filter = {Enabled -eq $true -and PasswordNeverExpires -eq $false}
