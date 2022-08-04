@@ -3,7 +3,6 @@
 #2. Hasn't logged in
 #3. Created at least X days ago
 
-
 #Using Search-ADAccount
 Search-ADAccount -AccountInactive -TimeSpan '90.00:00:00' -UsersOnly
 
@@ -29,7 +28,7 @@ $filter = {
     -and (Created -lt $createdDate)
 }
 
-Get-ADuser -Filter $filter | Where-Object {$_.info -notmatch "System Account"} | Select-Object SamAccountName
+Get-ADuser -Filter $filter | Select-Object SamAccountName
 
 #Functionize it
 Function Get-ADStaleUsers {
@@ -47,8 +46,8 @@ Function Get-ADStaleUsers {
     Get-ADuser -Filter $filter
 }
 
-# Usage
+#Usage
 Get-ADStaleUsers
 
-# Usage
-Get-ADStaleUsers -NoLogonSince (Get-Date).AddDays(-30) -CreatedBefore (Get-Date).AddDays(-7)
+#Usage
+Get-ADStaleUsers -NoLogonSince (Get-Date).AddDays(-30) -CreatedBefore (Get-Date).AddDays(-1)
