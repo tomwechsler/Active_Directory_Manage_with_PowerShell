@@ -27,7 +27,7 @@ $filter = {Enabled -eq $true -and PasswordNeverExpires -eq $false}
 Get-ADUser -Filter $filter
 
 #Then define what 'soon' is
-$days = 42
+$days = 7
 
 #Convert that to filetime
 $date = (Get-Date).AddDays($days).ToFileTime()
