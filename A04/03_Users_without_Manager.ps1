@@ -1,18 +1,11 @@
 #Define needed info
 $properties = 'Name','Department','Title','GivenName','SurName'
 
-#Build a filter
-$filterString = "($($properties[0]) -notlike '*')"
-For($x=1;$x -lt $properties.count; $x++){
-    $filterString += " -or ($($properties[$x]) -notlike '*')"
-}
-$filterString
-
 #Get those users
-Get-ADUser -Filter $filterString -Properties $properties | Format-Table $properties
+Get-ADUser -Filter * -Properties * | Format-Table $properties
 
 #We can filter for specific managers
-Get-ADUser -Filter {Manager -eq 'Leonard.Clark'}
+Get-ADUser -Filter {Manager -eq 'Nicholas.Murray'}
 
 #But not empty manager
 Get-ADUser -Filter {Manager -eq ''}
