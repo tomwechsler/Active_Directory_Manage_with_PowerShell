@@ -1,7 +1,7 @@
 #Search for some master roles
 Get-ADDomain corp | Select-Object InfrastructureMaster, RIDMaster, PDCEmulator
 
-#The PDCEmulator is important to know for the Event IDs: 4625 and 4750
+#The PDCEmulator is important to know for the Event IDs: 4625 and 4740
 #These contain information about bad password and account blocking
 
 #Search for some master roles

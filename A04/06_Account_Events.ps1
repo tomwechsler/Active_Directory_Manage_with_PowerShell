@@ -25,10 +25,6 @@ $events = Get-WinEvent -ComputerName $PDCEmulator -FilterHashtable @{
 #Examine some properties
 $events[0].Message
 
-#Regex?
-$events[0].Message -match 'Caller Computer Name:\s+(?<caller>[^\s]+)'
-$Matches.caller
-
 #Cool, but not as easy as:
 $events[0].Properties
 $events[0].Properties[1].Value
