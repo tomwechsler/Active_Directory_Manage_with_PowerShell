@@ -5,7 +5,7 @@ Get-ADOptionalFeature -Identity "Recycle Bin Feature"
 Enable-ADOptionalFeature `
 –Identity "Recycle Bin Feature" `
 –Scope ForestOrConfigurationSet `
-–Target "corp.int" `
+–Target "corp.pri" `
 -Confirm:$False
 
 #Search for a user
