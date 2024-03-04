@@ -3,9 +3,9 @@ Get-ADOptionalFeature -Identity "Recycle Bin Feature"
 
 #Enable
 Enable-ADOptionalFeature `
-–Identity "Recycle Bin Feature" `
-–Scope ForestOrConfigurationSet `
-–Target "corp.pri" `
+-Identity "Recycle Bin Feature" `
+-Scope ForestOrConfigurationSet `
+-Target "corp.pri" `
 -Confirm:$False
 
 #Search for a user
@@ -18,7 +18,7 @@ Get-ADUser -Identity "Boris.Jones" | Remove-ADUser -Confirm:$False
 Get-ADUser -Identity "Boris.Jones"
 
 #We look closer
-Get-ADObject -Filter {Name -like "Boris Jones*"} –IncludeDeletedObjects
+Get-ADObject -Filter {Name -like "Boris Jones*"} -IncludeDeletedObjects
 
 #Restore
 Get-ADObject -Filter {Name -like "Boris Jones*"} `
