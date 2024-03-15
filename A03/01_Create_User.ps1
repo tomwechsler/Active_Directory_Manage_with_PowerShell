@@ -1,11 +1,11 @@
-#Lets update the help files
-Update-help * -UICulture en-US -Force
-
 #We are looking for the cmdlet
 Get-Command *aduser*
 
 #Create a new user, but how?
 Get-Help New-ADUser -Examples
+
+#Lets update the help files
+Update-help * -UICulture en-US -Force
 
 #Create a user
 New-ADUser BobS

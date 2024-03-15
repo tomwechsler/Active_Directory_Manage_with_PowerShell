@@ -38,7 +38,7 @@ Get-ADGroupMember "Executives" | Select-Object SamAccountName
 
 #Now we create a PSO
 New-ADFineGrainedPasswordPolicy `
--description:"Minimum12 characters for all executives" `
+-description:"Minimum 12 characters for all executives" `
 -LockoutDuration 00:10:00 `
 -LockoutObservationWindow 00:10:00 `
 -LockoutThreshold 5 `

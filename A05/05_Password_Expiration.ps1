@@ -63,7 +63,7 @@ Function Send-ADPasswordReminders {
         $ts = New-TimeSpan -Start (Get-Date) -End ([datetime]::FromFileTime($user.'msDS-UserPasswordExpiryTimeComputed'))
         $html = $htmlTemplate -f $User.GivenName, "$($ts.Days) days"
         $EmailParams = @{
-            To = $to #$user.EmailAddress
+            To = $user.UserPrincipalName
             From = $from
             Subject = 'Password Expiration Notification'
             Body = $html
